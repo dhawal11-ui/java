@@ -1,15 +1,15 @@
+import java.util.*;
+
 public class JavaBasics {
 
     public static void main(String[] args) {
-        int a = 10;
-        int b = 5;
-        System.out.println(a);// yha a = 10 hai
-        System.out.println(b);
-      
-        String name = "tony stark";
-        System.out.println(name);
+        Scanner sc = new Scanner(System.in);
+       String input = sc.next(); // space dene ke baad age ka sara ingore hojayega
+    //     System.out.println(input);
+    //    String name =  sc.nextLine();// to store spaces also
+    //     System.out.println();
 
-        a=50;
-         System.out.println(a); // yha a=50;     (also check this in js)
+        float price  = sc.nextFloat();
+        System.out.println(price);
     }
 }
