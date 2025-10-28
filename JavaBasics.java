@@ -2,9 +2,8 @@ import java.util.*;
 
 public class JavaBasics {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        float rad = sc.nextFloat();
-        float area = 3.14f * rad * rad;
-        System.out.println(area);
+        float marks = 99.999f;
+        int marks2 = (int) marks;
+        System.out.println(marks2);
     }
 }
