@@ -2,20 +2,13 @@ import java.util.*;
 
 public class JavaBasics {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int income = sc.nextInt();
-        int tax;
-
-        if (income < 500000) {
-            tax = 0;
-
-        } else if (income > 500000 && income < 1000000) {
-            tax = (int) (income * 0.2);
-
+        int A = 411, B = 13, C = 6;
+        if ((A >= B) && (A >= C)) {
+            System.out.println("A is largest");
+        } else if (B >= C) {
+            System.out.println("B is largest");
         } else {
-            tax = (int) (income * 0.3); // since 0.3 is double .
-
+            System.out.println("C is largest");
         }
-        System.out.println("your tax is " + tax);
     }
 }
