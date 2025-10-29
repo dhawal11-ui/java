@@ -2,13 +2,34 @@ import java.util.*;
 
 public class JavaBasics {
     public static void main(String[] args) {
-        int A = 411, B = 13, C = 6;
-        if ((A >= B) && (A >= C)) {
-            System.out.println("A is largest");
-        } else if (B >= C) {
-            System.out.println("B is largest");
-        } else {
-            System.out.println("C is largest");
+        int number = 2;
+
+        switch (number) {
+            case 1:
+                System.out.println("samosa");
+                break;
+            case 2:
+                System.out.println("burger");
+                break;
+
+            case 3:
+                System.out.println("mango shake");
+                break;
+            default:
+                System.out.println("we relize we are dreami9ng");
+
         }
     }
 }
+/*
+ * o/p without using break.
+ * burger
+ * mango shake
+ * we relize we are dreami9ng
+ */
+
+/*
+ * o/p using break.
+ * burger
+ * 
+ */
