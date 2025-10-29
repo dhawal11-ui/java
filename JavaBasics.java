@@ -1,11 +1,15 @@
-import java.util.*;
-
 public class JavaBasics {
     public static void main(String[] args) {
-        int A = 10;
-        int B = A++; // pehele b banega then a++ hoga.
-        System.out.println(A);
-        System.out.println(B);
-
+        int age = 14;
+        if (age >= 18) {
+            System.out.println("you are an adult now");
+        }
+        if (age > 13 && age < 18) {
+            System.out.println("teenager"); // jo condn sahi hogyi uske badk8i sare conditions reject krdega and this is
+                                            // the fucking loophole
+        }
+        if (age < 10) {
+            System.out.println("not adult");
+        }
     }
 }
