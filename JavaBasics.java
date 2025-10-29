@@ -1,12 +1,21 @@
+import java.util.*;
+
 public class JavaBasics {
     public static void main(String[] args) {
-        int A = 2;
+        Scanner sc = new Scanner(System.in);
+        int income = sc.nextInt();
+        int tax;
 
-        if (A % 2 == 0) {
-            System.out.println("even");
+        if (income < 500000) {
+            tax = 0;
+
+        } else if (income > 500000 && income < 1000000) {
+            tax = (int) (income * 0.2);
+
+        } else {
+            tax = (int) (income * 0.3); // since 0.3 is double .
+
         }
-        if (A % 2 == 0) {
-            System.out.println("odd");
-        }
+        System.out.println("your tax is " + tax);
     }
 }
