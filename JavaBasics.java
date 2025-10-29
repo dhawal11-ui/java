@@ -2,17 +2,17 @@ import java.util.*;
 
 public class JavaBasics {
     public static void main(String[] args) {
-        int number = 2;
+        char ch = 'a';
 
-        switch (number) {
-            case 1:
+        switch (ch) {
+            case 'a':
                 System.out.println("samosa");
                 break;
-            case 2:
+            case 'b':
                 System.out.println("burger");
                 break;
 
-            case 3:
+            case 'f':
                 System.out.println("mango shake");
                 break;
             default:
