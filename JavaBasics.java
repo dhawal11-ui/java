@@ -1,15 +1,24 @@
-import java.util.Scanner;
 
 public class JavaBasics {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        for (int i = 1; i <= n; i++) {
-            for (int j = 1; j <= i; j++) {
-                System.out.print("*");
-            }
-            System.out.println("\n");
+
+    public static void deciToBi(int n) {
+        int pow = 0;
+        int biNum = 0;
+
+        while (n > 0) {
+            int rem = n % 2;
+            biNum = biNum + rem * (int) Math.pow(10, pow);
+
+            pow++;
+            n = n / 2;
+
         }
+        System.out.println(biNum);
+
+    }
+
+    public static void main(String[] args) {
+        deciToBi(7);
     }
 
 }
