@@ -1,22 +1,22 @@
 import java.util.*;
 
 public class JavaBasics {
-    public static void update(int game[],int n) {
-        n=10;
-        for(int i=0;i<=game.length-1;i++){
-         game[i]++;    
+
+    public static int  search(int numbers[],int key) {
+        for(int i=0 ; i<numbers.length; i++){
+            if(numbers[i]==key){
+                return i;
+            }
         }
-        
+        return -1;
     }
     public static void main(String args[]){
-      int marks[] = {97,98,99};
-      int nonChangable =5;
-      update(marks,nonChangable);
-      System.out.println(nonChangable);
+      int numbers[] = {1,2,3,4,5,6,7,8,9};
+      int key = 5;
+      int index = search(numbers, key);
 
-      for(int i=0;i<=marks.length;i++){
-         System.out.println(marks[i]);    
-        }
+      System.out.println(index);
+
 
     }
 } 
