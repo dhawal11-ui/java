@@ -22,8 +22,10 @@ public class JavaBasics {
     }
     public static void main(String args[]){
         int numbers[]={2,4,6,8,10,12,14};
-        int key = 4;
+        int key = 9;
 
         System.out.println("index of key is "+ binarySearch(numbers, key));
     }
 } 
+
+// time complexity log2(n)
