@@ -29,3 +29,6 @@ public class JavaBasics {
     }
 
 }
+// Time complexity 
+// ek loop ki n and sare nested hai . to O(n3);
+// kafi buri
