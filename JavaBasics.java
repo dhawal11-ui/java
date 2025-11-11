@@ -1,30 +1,28 @@
 public class JavaBasics {
-    public static void printPairs(int numbers[]) {
-        int  tp = 0;
-        for (int i = 0; i < numbers.length; i++) {
-            int curr = numbers[i];
-            for (int j = i + 1; j < numbers.length; j++) {
-                
-                System.out.print("(" + curr + "," + numbers[j] + ")");
-                tp++;
+    public static void printSubArrays(int numbers[]) {
+        int ts =0;
+        for(int i =0 ; i< numbers.length ; i++){ // for determining starting position of indexes .
+            int start = i;
+            for(int j=i ;j<numbers.length ; j++){ // start se end dono ki positon define krna . 
+                int end = j;
+                for(int k=start ;k<=end ; k++){
+                    System.out.print(numbers[k]+ " "); // sub array  (printing ka kam karna . )
+                }
+                ts++;
+                System.out.println();
             }
             System.out.println();
-           
         }
-        System.out.println(tp);
+        System.out.println("total sub arrays = "+ ts);
     }
 
     public static void main(String args[]) {
-        int numbers[] = { 2, 4, 6, 8, 10 };
-        printPairs(numbers);
+        int numbers[] = { 2, 4, 6, 8, 10};
+        printSubArrays(numbers);
     }
 
 }
 
 
-// formula to find by observing patterrsn . n(n-2)/2; .. sum of n-1 numbners .
-
-// outer loop -> o(n)
-// inner loop - > o(n  + n-1 ... 1)
-
-// time complexity at worst case -> o(n2)
+// formula where n is the size of an array.
+    // sum = n(n=1)/2
