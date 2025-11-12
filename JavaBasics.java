@@ -1,3 +1,5 @@
+import static org.junit.jupiter.api.Assertions.fail;
+
 public class JavaBasics {
 
     public static void printSubArrays(int numbers[]) {
@@ -22,12 +24,23 @@ public class JavaBasics {
         System.out.println("Max sum = " + maxSum);
     }
 
+    public static void kadanes(int numbers[]){ // what if al nos . are negetive // hw wirte special case ., 
+        int ms = Integer.MIN_VALUE;
+        int cs = 0;
+
+        for(int i=0;i< numbers.length;i++){
+            cs += numbers[i];
+
+            if(cs < 0){
+                cs = 0;
+            }
+            ms = Math.max(cs,ms);
+        }
+        System.out.println("our max subarry sum is :"+ ms);
+    }
     public static void main(String args[]) {
-        int numbers[] = { 1, -2, 6, -1, 3 };
-        printSubArrays(numbers);
+        int numbers[] = { -2,-3,4,-1,-2,1,5,-3 };
+        kadanes(numbers);
     }
 
 }
-
-
-// TC = O(n2);
