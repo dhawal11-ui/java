@@ -1,39 +1,26 @@
 public class JavaBasics {
+    public static String compress(String str) {
+        String newStr = "";
 
-    public static void numCheck(int num[]){
-           for(int i=0;i<num.length;i++){
-            int checkNo = num[i];
+        for (int i = 0; i < str.length(); i++) {
+            Integer count = 1;
+            while (i < str.length() - 1 && str.charAt(i) == str.charAt(i + 1)) {
+                count++;
+                i++;
+            }
+            newStr += str.charAt(i);
+            if (count > 1) {
+                newStr += count.toString();
 
-                for(int j=0;j<num.length;j++){
-                    if(checkNo == num[j]){
-                     System.out.println("True3");
-                     break;
-
-                    }
-
-                }
+            }
         }
+        return newStr;
+
     }
 
-    public static int add(int a, int b) {
-        return a + b;
-    }
     public static void main(String args[]) {
-        int num[]={1, 2, 3, 1};
-        numCheck(num);
-
-        // Test the add function
-        int result = add(5, 3);
-        System.out.println("Addition result: " + result);
-
-        // Add an array of 5 natural numbers and sum them
-        int[] naturalNumbers = {1, 2, 3, 4, 5};
-        int sum = 0;
-        for (int number : naturalNumbers) {
-            sum += number;
-        }
-        System.out.println("Sum of natural numbers: " + sum);
-
+        String str = "aaabbcccdd"; // here i use str classs .
+    System.out.println(compress(str));
     }
-    
+
 }
