@@ -12,18 +12,39 @@ public class JavaBasics {
         for (int i = 1; i < arr.length; i++) {
             int curr = arr[i]; // temporary varibale .
             int prev = i - 1;
-            //findiding out the correct position to inser t.
+            // findiding out the correct position to inser t.
             while (prev >= 0 && arr[prev] > curr) {
                 arr[prev + 1] = arr[prev];
                 prev--;
             }
-            //insertion
-            arr[prev+1]=curr;
+            // insertion
+            arr[prev + 1] = curr;
+        }
+    }
+
+    public static void countingSort(int arr[]) {
+        int largest = Integer.MIN_VALUE;
+        for (int i = 0; i < arr.length; i++) {
+            largest = Math.max(largest, arr[i]);
+        }
+        int count[] = new int[largest + 1];
+        for (int i = 0; i < arr.length; i++) {
+            count[arr[i]]++;
+
+        }
+        // sortings.
+        int j=0;
+        for (int i = 0; i < count.length; i++) {
+            while(count[i]>0){
+                arr[j]=i;
+                j++;
+                count[i]--;
+            }
         }
     }
 
     public static void selectionSort(int arr[]) {
-        for (int i = 0; i < arr.length ; i++) {
+        for (int i = 0; i < arr.length; i++) {
             int minPos = i;
             for (int j = i + 1; j < arr.length; j++) {
                 if (arr[minPos] > arr[j]) {
@@ -39,8 +60,8 @@ public class JavaBasics {
     }
 
     public static void main(String[] args) {
-        int arr[] = { 5, 4, 1, 3, 2 };
-        insertion(arr);
+        int arr[] = { 5, 4, 1, 3, 2,9,8 };
+        countingSort(arr);
         printArray(arr);
 
     }
