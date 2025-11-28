@@ -1,15 +1,29 @@
 public class JavaBasics {
 
-    public static void printArray(int arr[]){
-        System.out.print("(");
-        for(int i=0; i<arr.length ; i++){
-          System.out.print(arr[i] + ",");
+    public static void printArray(int arr[]) {
+        System.out.print("sorted array" + "(");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + ",");
         }
         System.out.print(")");
     }
 
+    public static void insertion(int arr[]) {
+        for (int i = 1; i < arr.length; i++) {
+            int curr = arr[i];
+            int prev = i - 1;
+            //findiding out the correct position to inser t.
+            while (prev >= 0 && arr[prev] > curr) {
+                arr[prev + 1] = arr[prev];
+                prev--;
+            }
+            //insertion
+            arr[prev+1]=curr;
+        }
+    }
+
     public static void selectionSort(int arr[]) {
-        for (int i = 0; i < arr.length - 1; i++) {
+        for (int i = 0; i < arr.length ; i++) {
             int minPos = i;
             for (int j = i + 1; j < arr.length; j++) {
                 if (arr[minPos] > arr[j]) {
@@ -25,9 +39,9 @@ public class JavaBasics {
     }
 
     public static void main(String[] args) {
-        int arr[] = {5,4,1,3,2};
-        selectionSort(arr);
+        int arr[] = { 5, 4, 1, 3, 2 };
+        insertion(arr);
         printArray(arr);
-        
+
     }
 }
