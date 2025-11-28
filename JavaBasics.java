@@ -1,26 +1,33 @@
 public class JavaBasics {
-    public static String compress(String str) {
-        String newStr = "";
 
-        for (int i = 0; i < str.length(); i++) {
-            Integer count = 1;
-            while (i < str.length() - 1 && str.charAt(i) == str.charAt(i + 1)) {
-                count++;
-                i++;
-            }
-            newStr += str.charAt(i);
-            if (count > 1) {
-                newStr += count.toString();
-
-            }
+    public static void printArray(int arr[]){
+        System.out.print("(");
+        for(int i=0; i<arr.length ; i++){
+          System.out.print(arr[i] + ",");
         }
-        return newStr;
-
+        System.out.print(")");
     }
 
-    public static void main(String args[]) {
-        String str = "aaabbcccdd"; // here i use str classs .
-    System.out.println(compress(str));
+    public static void selectionSort(int arr[]) {
+        for (int i = 0; i < arr.length - 1; i++) {
+            int minPos = i;
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[minPos] > arr[j]) {
+                    minPos = j;
+                }
+
+            }
+            // swap
+            int temp = arr[minPos];
+            arr[minPos] = arr[i];
+            arr[i] = temp;
+        }
     }
 
+    public static void main(String[] args) {
+        int arr[] = {5,4,1,3,2};
+        selectionSort(arr);
+        printArray(arr);
+        
+    }
 }
