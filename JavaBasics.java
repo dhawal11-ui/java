@@ -1,68 +1,15 @@
 public class JavaBasics {
-
-    public static void printArray(int arr[]) {
-        System.out.print("sorted array" + "(");
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + ",");
-        }
-        System.out.print(")");
+    public static void oddOrEven(int n){
+    int bitMask = 1;
+    if((n & bitMask) ==0){ // last bit analyse . 0 rhi to odd 1 rhi to even l.
+        System.out.println("even no");
+    }else{
+        System.out.println("odd number");
     }
-
-    public static void insertionSort(int arr[]) {
-        for (int i = 1; i < arr.length; i++) {
-            int curr = arr[i]; // temporary varibale .
-            int prev = i - 1;
-            // findiding out the correct position to inser t.
-            while (prev >= 0 && arr[prev] > curr) {
-                arr[prev + 1] = arr[prev];
-                prev--;
-            }
-            // insertion
-            arr[prev + 1] = curr;
-        }
-    }
-
-    public static void countingSort(int arr[]) {
-        int largest = Integer.MIN_VALUE;
-        for (int i = 0; i < arr.length; i++) {
-            largest = Math.max(largest, arr[i]);
-        }
-        int count[] = new int[largest + 1];
-        for (int i = 0; i < arr.length; i++) {
-            count[arr[i]]++;
-
-        }
-        // sortings.
-        int j=0;
-        for (int i = 0; i < count.length; i++) {
-            while(count[i]>0){
-                arr[j]=i;
-                j++;
-                count[i]--;
-            }
-        }
-    }
-
-    public static void selectionSort(int arr[]) {
-        for (int i = 0; i < arr.length; i++) {
-            int minPos = i;
-            for (int j = i + 1; j < arr.length; j++) {
-                if (arr[minPos] > arr[j]) {
-                    minPos = j;
-                }
-
-            }
-            // swap
-            int temp = arr[minPos];
-            arr[minPos] = arr[i];
-            arr[i] = temp;
-        }
-    }
-
+}
     public static void main(String[] args) {
-        int arr[] = { 5, 4, 1, 3, 2,9,8 };
-        countingSort(arr);
-        printArray(arr);
-
+        oddOrEven(3);
+        oddOrEven(11);
+        oddOrEven(14);
     }
 }
