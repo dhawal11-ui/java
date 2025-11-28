@@ -8,9 +8,9 @@ public class JavaBasics {
         System.out.print(")");
     }
 
-    public static void insertion(int arr[]) {
+    public static void insertionSort(int arr[]) {
         for (int i = 1; i < arr.length; i++) {
-            int curr = arr[i];
+            int curr = arr[i]; // temporary varibale .
             int prev = i - 1;
             //findiding out the correct position to inser t.
             while (prev >= 0 && arr[prev] > curr) {
