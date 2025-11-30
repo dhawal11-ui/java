@@ -1,43 +1,53 @@
 public class JavaBasics {
-    public static void main(String[] args) { // starting of the execution of the program . by compiler (yhi dhundega
-                                             // pehele )
-        Pen p1 = new Pen(); // constructor . (memory meh pen object banaya p1 name seh)
+    public static void main(String[] args) {
+        Pen p1 = new Pen();
         p1.setColor("Blue");
-        System.out.println(p1.color); // just like key value pairs
-        p1.setTip(5); // accessing function
-        System.out.println(p1.tip); // accessing blueprint p1 tip value .
+        System.out.println(p1.color);
+        p1.setTip(5);
+        System.out.println(p1.tip);
 
-        //rechanging directly by accessing its value .
         p1.color = "marine";
         System.out.println(p1.color);
-      
+
+
+        BankAccount myAcc = new BankAccount();
+        myAcc.username = "dhawal";
+        myAcc.setPassword("adfjadj"); // only we can change password but not access it .
     }
 
 }
 
-// classes public ke upr na banaye .yeh classes ke objects banane me pareshani
-// ayegi
-// bluprints
+class BankAccount{
+    public String username;
+    private String password;
+
+    public void setPassword(String pwd){
+        password = pwd;
+    }
+}
+
 class Pen {
-    // prop+ functions
+
     String color;
     int tip;
 
-    void setColor(String newColor) {// functions of the class
+    void setColor(String newColor) {
         color = newColor;
     }
 
-    void setTip(int newTip) {// functions of the class
+    void setTip(int newTip) {
         tip = newTip;
     }
 }
 
+
+
 class Student {
     String name;
     int age;
-    float percentage; // cgpa
+    float percentage;
 
-    void calcPercentage(int phy, int chem, int math) { // functions of the class
+    void calcPercentage(int phy, int chem, int math) {
         percentage = (phy + chem + math) / 3;
     }
 }
