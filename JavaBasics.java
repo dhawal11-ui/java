@@ -17,7 +17,7 @@ public class JavaBasics {
         }
     }
 
-    public static int setIthBit(int n, int i) {  
+    public static int setIthBit(int n, int i) {
         int bitMask = 1 << i;
         return n | bitMask;
     }
@@ -27,29 +27,35 @@ public class JavaBasics {
         return n & bitMask;
     }
 
-    public static int clearIthBits(int n , int i){
-        int bitMask = (~0)<<i;
+    public static int clearIthBits(int n, int i) {
+        int bitMask = (~0) << i;
         return n & bitMask;
     }
 
     public static int updateIthBit(int n, int i, int newBit) {
         // if (newBit == 0) {
-        //     return clearIthBit(n, i);
+        // return clearIthBit(n, i);
 
         // } else {
-        //     return setIthBit(n, i);
+        // return setIthBit(n, i);
         // }
 
-        //approach 2 
+        // approach 2
 
-        n= clearIthBit(n, i);
-        int BitMask = newBit<<i;
-        return n|BitMask;
+        n = clearIthBit(n, i);
+        int BitMask = newBit << i;
+        return n | BitMask;
 
     }
 
-   
+    public static int clearIBits(int n , int i, int j){
+        int a = ((~0)<<(j+1));
+        int b = (1<<i)-1;
+        int bitMask = a|b;
+        return n& bitMask;
+    }
+
     public static void main(String[] args) {
-        System.out.println(clearIthBits(15, 2));
+        System.out.println(clearIBits(10,2,4));
     }
 }
