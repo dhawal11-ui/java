@@ -17,13 +17,18 @@ public class JavaBasics {
         }
     }
 
-    public static int setIthBit(int n, int i) {
+    public static int setIthBit(int n, int i) {  
         int bitMask = 1 << i;
         return n | bitMask;
     }
 
     public static int clearIthBit(int n, int i) {
         int bitMask = ~(1 << i);
+        return n & bitMask;
+    }
+
+    public static int clearIthBits(int n , int i){
+        int bitMask = (~0)<<i;
         return n & bitMask;
     }
 
@@ -43,7 +48,8 @@ public class JavaBasics {
 
     }
 
+   
     public static void main(String[] args) {
-        System.out.println(updateIthBit(10, 2,1));
+        System.out.println(clearIthBits(15, 2));
     }
 }
