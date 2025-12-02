@@ -1,33 +1,20 @@
 public class JavaBasics {
-    public static void main(String[] args) {
-        Pen p1 = new Pen();
-        p1.setColor("Blue");
-        System.out.println(p1.getColor()); // p1.color is not accesable becoz it is private
 
-    }   
-    
+    public static void main(String[] args) {
+        Student s1 = new Student(); // student class ke andr ka student functioln
+        s1.name("dhawal", 11);
+        System.out.println(s1.name);
+    }
 }
 
-class Pen {
+class Student {
+    String name;
+    int roll;
 
-    private String color;
-    private int tip;
+   
 
-    // getters
-    String getColor() {
-        return this.color;
+    void name(String name, int roll) {
+        this.roll = roll;
+        this.name = name;// ye changes consturctor me krega
     }
-
-    int getTip() {
-        return this.tip;
-    }
-
-    void setColor(String newColor) {// setters
-        this.color = newColor;
-    }
-
-    void setTip(int tip) {
-        this.tip = tip; // this.tip property of object and tip is variable
-    }
-
 }
