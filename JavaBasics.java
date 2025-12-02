@@ -26,14 +26,24 @@ class Student {
     int roll;
     String password;
     int marks[];
+  
+    // shallow cpy constructor:
+    // Student(Student s1) {
+    //     marks = new int[3];
+    //     this.name = s1.name;
+    //     this.roll = s1.roll;
+    //     this.marks = s1.marks;
 
-    // cpy constructor:
+    // }
+
+    //deep cpy constructor
     Student(Student s1) {
         marks = new int[3];
         this.name = s1.name;
         this.roll = s1.roll;
-        this.marks = s1.marks;
-
+        for(int i=0 ; i<marks.length;i++){ // marks meh ek ek value copy kre . blank array me.
+            this.marks[i] = s1.marks[i];
+        }; 
     }
 
     Student() { // fn1
