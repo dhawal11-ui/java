@@ -1,30 +1,53 @@
 public class JavaBasics {
 
     public static void main(String[] args) {
-        // CONSTRUCTOR OVERLOADING (ex of polymorphism)
-        Student s1 = new Student(); // fn1 ..(agr yeh line chalaani hai bina student class meh constructor banaye
-                                    // yani default constructor made by java ko use krke . Toh hame baki sare
-                                    // construcors jo hane banaye class student meh woh hame delete karne hoge
-                                    // .bchncod)
-        Student s2 = new Student("dhawal"); // fn2
-        Student s3 = new Student(19);// fn3
 
+        Student s1 = new Student();
+        s1.name = "dhawal";
+        s1.roll = 1234;
+        s1.password = "abcd";
+        s1.marks[0] = 100;
+        s1.marks[1] = 90;
+        s1.marks[2] = 80;
+
+        Student s2 = new Student(s1); // copied
+        s2.password = "xyz";
+        s1.marks[2]= 189; 
+
+
+            for(int i=0 ; i< 3;i++){
+                System.out.println(s2.marks[i]);
+            }
     }
 }
 
 class Student {
     String name;
     int roll;
+    String password;
+    int marks[];
+
+    // cpy constructor:
+    Student(Student s1) {
+        marks = new int[3];
+        this.name = s1.name;
+        this.roll = s1.roll;
+        this.marks = s1.marks;
+
+    }
 
     Student() { // fn1
+        marks = new int[3]; // array ko point kr rha not actual array.
         System.out.println("constructor is called");
     }
 
     Student(int roll) {// fn2
+        marks = new int[3];
         this.roll = roll;
     }
 
     Student(String name) {// fn3
+        marks = new int[3];
         this.name = name;
     }
 }
