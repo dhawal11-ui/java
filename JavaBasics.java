@@ -35,7 +35,7 @@ class Student {
     //     this.marks = s1.marks;
 
     // }
-
+ 
     //deep cpy constructor
     Student(Student s1) {
         marks = new int[3];
@@ -48,7 +48,7 @@ class Student {
 
     Student() { // fn1
         marks = new int[3]; // array ko point kr rha not actual array.
-        System.out.println("constructor is called");
+        System.out.println("constructor is called meow");
     }
 
     Student(int roll) {// fn2
@@ -60,4 +60,6 @@ class Student {
         marks = new int[3];
         this.name = name;
     }
+
+    
 }
