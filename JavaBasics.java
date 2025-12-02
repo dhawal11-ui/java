@@ -1,8 +1,10 @@
 public class JavaBasics {
 
     public static void main(String[] args) {
-        Fish shark = new Fish();
-        shark.eat();
+        Dog dobby = new Dog();
+        dobby.eat();
+        dobby.legs = 10;
+        System.out.println(dobby.legs);
     }
 }
 
@@ -18,6 +20,14 @@ class Animal {
         System.out.println("breadths");
     }
 
+}
+
+class Mammal extends Animal {
+    int legs;
+}
+
+class Dog extends Mammal {
+    String breed;
 }
 
 // Derived Class / sub class
