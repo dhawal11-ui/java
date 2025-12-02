@@ -1,65 +1,28 @@
 public class JavaBasics {
 
     public static void main(String[] args) {
-
-        Student s1 = new Student();
-        s1.name = "dhawal";
-        s1.roll = 1234;
-        s1.password = "abcd";
-        s1.marks[0] = 100;
-        s1.marks[1] = 90;
-        s1.marks[2] = 80;
-
-        Student s2 = new Student(s1); // copied
-        s2.password = "xyz";
-        s1.marks[2]= 189; 
-
-
-            for(int i=0 ; i< 3;i++){
-                System.out.println(s2.marks[i]);
-            }
+        Fish shark = new Fish();
+        shark.eat();
     }
 }
 
-class Student {
-    String name;
-    int roll;
-    String password;
-    int marks[];
-  
-    // shallow cpy constructor:
-    // Student(Student s1) {
-    //     marks = new int[3];
-    //     this.name = s1.name;
-    //     this.roll = s1.roll;
-    //     this.marks = s1.marks;
+// Base Class
+class Animal {
+    String color;
 
-    // }
- 
-    //deep cpy constructor
-    Student(Student s1) {
-        marks = new int[3];
-        this.name = s1.name;
-        this.roll = s1.roll;
-        for(int i=0 ; i<marks.length;i++){ // marks meh ek ek value copy kre . blank array me.
-            this.marks[i] = s1.marks[i];
-        }; 
+    void eat() {
+        System.out.println("eats");
     }
 
-    Student() { // fn1
-        marks = new int[3]; // array ko point kr rha not actual array.
-        System.out.println("constructor is called meow");
+    void breadth() {
+        System.out.println("breadths");
     }
 
-    Student(int roll) {// fn2
-        marks = new int[3];
-        this.roll = roll;
-    }
+}
 
-    Student(String name) {// fn3
-        marks = new int[3];
-        this.name = name;
+// Derived Class / sub class
+class Fish extends Animal {
+    void swin() {
+        System.out.println("swims in water");
     }
-
-    
 }
