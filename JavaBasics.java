@@ -2,52 +2,32 @@ public class JavaBasics {
     public static void main(String[] args) {
         Pen p1 = new Pen();
         p1.setColor("Blue");
-        System.out.println(p1.color);
-        p1.setTip(5);
-        System.out.println(p1.tip);
+        System.out.println(p1.getColor()); // p1.color is not accesable becoz it is private
 
-        p1.color = "marine";
-        System.out.println(p1.color);
-
-
-        BankAccount myAcc = new BankAccount();
-        myAcc.username = "dhawal";
-        myAcc.setPassword("adfjadj"); // only we can change password but not access it .
-    }
-
-}
-
-class BankAccount{
-    public String username;
-    private String password;
-
-    public void setPassword(String pwd){
-        password = pwd;
-    }
+    }   
+    
 }
 
 class Pen {
 
-    String color;
-    int tip;
+    private String color;
+    private int tip;
 
-    void setColor(String newColor) {
-        color = newColor;
+    // getters
+    String getColor() {
+        return this.color;
     }
 
-    void setTip(int newTip) {
-        tip = newTip;
+    int getTip() {
+        return this.tip;
     }
-}
 
-
-
-class Student {
-    String name;
-    int age;
-    float percentage;
-
-    void calcPercentage(int phy, int chem, int math) {
-        percentage = (phy + chem + math) / 3;
+    void setColor(String newColor) {// setters
+        this.color = newColor;
     }
+
+    void setTip(int tip) {
+        this.tip = tip; // this.tip property of object and tip is variable
+    }
+
 }
