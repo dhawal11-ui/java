@@ -1,59 +1,44 @@
-// Abstract class
-/*
- * 1>cannot create an instance(obj)of abstract class
- * 2> abstract and non abstract method aajayege
- * 3>
- * can have constructors
- */
-
+// - Multiple inheritence (5th).
+// - To achieve total abstraction. (100% abstraction)
+// - Define via interface keyword and copy properties in child via implements keyword .
+// - All methods are public , abstract, without implementation(no function define in code only name of the fucntion.) .
+//- Variables in interfaces are final , public , static.
 public class JavaBasics {
-
     public static void main(String[] args) {
-        Horse h = new Horse();
-        h.eat();
-        h.walk();
-
-        System.out.println(h.color);
-
-        // Animal a = new Animal(); // cannot create instatntiate the type animal (err)
-        // {abstract class hai re }
+        Queen q = new Queen();
+        q.moves();
     }
 }
 
-abstract class Animal {
-    String color;
+interface Herbivore {
 
-    Animal() {
-        this.color = "brown";
-    }
+}
+interface Carnivore {
 
-    void eat() {
-        System.out.println("Animal eats");
-    }
-
-    // if you try Animal a = new Animal(); when Animal is abstract, the compiler
-    // will
-    // error — that’s the primary purpose of abstract here: prevent instantiation of
-    // the base type.
-    abstract void walk();
 }
 
-class Horse extends Animal {
-    void changeColor() {
-        this.color = "dark Brown";
-    }
+class Bear implements Herbivore , Carnivore {
+    
+}
 
-    void walk() {
-        System.out.println("walks on 4 legs");
+interface ChessPlayer {
+    void moves(); // bluprint.
+}
+
+class Queen implements ChessPlayer {
+    public void moves() {
+        System.err.println("up , down , left , right , diagonal(all sides) ");
     }
 }
 
-class Chicken extends Animal {
-    void changeColor() {
-        this.color = "yellow";
+class Rook implements ChessPlayer {
+    public void moves() {
+        System.err.println("up , down , left , right  ");
     }
+}
 
-    void walk() {
-        System.out.println("walks on 2 legs");
+class King implements ChessPlayer {
+    public void moves() {
+        System.err.println("up , down , left , right , diagonal by(1 step) ");
     }
 }
