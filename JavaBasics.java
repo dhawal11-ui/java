@@ -1,27 +1,16 @@
 public class JavaBasics {
+
     public static void main(String[] args) {
-        Vehicle v = new Car();
-        // v.name1(); 
-
+        marks m = new marks();
+        m.check_marks(2);
+        System.out.println(marks.marks);
     }
 }
 
-class Vehicle {
-    String name;
+class marks {
+ static   int marks = 10; // 
 
-    Vehicle() {
-        System.out.print("Hello, ");
-    }
-
-    void name() {
-        System.out.println("vehicle is called ");
-    }
-}
-
-class Car extends Vehicle {
-    String vehicleName;
-
-    void name1() {
-        System.out.println("car is called ");
+    int check_marks(int marks) {
+        return marks;
     }
 }
