@@ -1,24 +1,15 @@
 public class Recurssion {
 
     public static void main(String[] args) {
-        
-        System.out.println(fact(5));
+        System.out.println("you sum is " + sum(8));
     }
 
-    public static int fact(int n){
-        if(n==0){
+    public static int sum(int n) {
+        if (n == 1) {// BC (base case).
             return 1;
         }
-        int fnm1 = fact(n-1);
-        int fn = n*fact(n-1);
-        return fn;
+        int sum = sum(n - 1); // return store return store .
+        return sum + n;
     }
-    public static void printInc(int n) {
-        if(n ==1 ){
-            System.out.print(n + " ");
-            return;
-        }
-        printInc(n-1);
-        System.out.print(n + " ");
-    }
-}
+
+} // time and space complexity are both O(n);.
