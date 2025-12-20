@@ -10,7 +10,7 @@ public class Recurssion {
         }
         if (arr[i] > arr[i + 1]) {
             return false;
-        }
+        } // nichi ki run he nhi hoti agr upr wala false dedeta to.
         return isSorted(arr, i + 1);
     }
 
