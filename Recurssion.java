@@ -1,26 +1,21 @@
-public class Recurssion {
+class Recurssion {
+    // str builder se v kar sakte the but woh complex hojata tha . Isliye nhi kiya.
+    // Umse append ek waqt ek posn per 2 ajate the kabhi kabhi 0 ya 1 .. isliye
+    // remove v karna padtta tha .
 
-    public static int frPair(int n) {
-
-        // bc
-        if (n == 1 || n == 2) {
-            return n;
+    public static void printBiStr(int n, int lastPlace, String str) {
+        if (n == 0) {
+            System.err.println(str);
+            return;
         }
-
-        // for single
-        int fnm1 = frPair(n - 1);
-
-        // for pair
-        int fnm2 = frPair(n - 2);
-
-        int totalWays = fnm1 + (n - 1) * fnm2;
-        // single select + pairs
-        return totalWays;
+        // kaam
+        printBiStr(n - 1, 0, str + "0");
+        if (lastPlace == 0) {
+            printBiStr(n - 1, 1, str + "1");
+        }
     }
 
     public static void main(String[] args) {
-        System.out.println(frPair(4));
-        ;
+        printBiStr(30, 0, "");
     }
-
 }
