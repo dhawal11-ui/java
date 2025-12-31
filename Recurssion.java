@@ -1,21 +1,24 @@
-class Recurssion {
-    // str builder se v kar sakte the but woh complex hojata tha . Isliye nhi kiya.
-    // Umse append ek waqt ek posn per 2 ajate the kabhi kabhi 0 ya 1 .. isliye
-    // remove v karna padtta tha .
+public class Recurssion {
 
-    public static void printBiStr(int n, int lastPlace, String str) {
-        if (n == 0) {
-            System.err.println(str);
-            return;
-        }
-        // kaam
-        printBiStr(n - 1, 0, str + "0");
-        if (lastPlace == 0) {
-            printBiStr(n - 1, 1, str + "1");
+    public static void findOcc(int arr[], int idx) {
+
+        // bc
+        if (idx == 9) {
+            System.out.println("end");
+
+        } else if (arr[idx] == 2) {
+            System.out.println(idx);
+            findOcc(arr, idx + 1);
+
+        } else {
+
+            findOcc(arr, idx + 1);
         }
     }
 
     public static void main(String[] args) {
-        printBiStr(30, 0, "");
+        int arr[] = { 3, 2, 4, 5, 6, 2, 7, 2, 2, };
+        findOcc(arr, 0);
+
     }
 }
