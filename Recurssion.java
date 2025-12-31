@@ -1,22 +1,24 @@
 public class Recurssion {
-    public static int tilingProblem(int n) {
-        // base case
-
-        if (n == 0 || n == 1) {
-            return 1;
-        }
-
-        // kaam
-        // verical choice
-        int fnm1 = tilingProblem(n - 1);
-        // horizontal choice
-        int fnm2 = tilingProblem(n - 2);
-
-        int totalWays = fnm1 + fnm2;
-        return totalWays;
-    }
 
     public static void main(String[] args) {
-        System.out.println(tilingProblem(5));
+        String str = "apnacollege";
+        removeDuplicates(str, 0, new StringBuilder(""), new boolean[26]);
+    }
+
+    public static void removeDuplicates(String str, int idx, StringBuilder newStr, boolean[] map) {
+        if (idx == str.length()) { // BC
+            System.out.println(newStr);
+            return;
+        }
+
+        char currChar = str.charAt(idx);
+        if (map[currChar - 'a']) { // duplicate
+            removeDuplicates(str, idx + 1, newStr, map);
+        } else {
+            map[currChar - 'a'] = true;
+            newStr.append(currChar);
+            removeDuplicates(str, idx + 1, newStr, map);
+            newStr.deleteCharAt(newStr.length() - 1);
+        }
     }
 }
