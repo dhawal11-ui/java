@@ -14,10 +14,11 @@ public class Recurssion {
         char currChar = str.charAt(idx);
         if (map[currChar - 'a'] == true) { // duplicate {ham yha samaj rhe hai ki woh currchar exists krti hai}
             removeDuplicates(str, idx + 1, newStr, map);
+            return;
         } else { // dne currChar in map
             map[currChar - 'a'] = true;
             removeDuplicates(str, idx + 1, newStr.append(currChar), map);
-
+            return;
         }
     }
 }
