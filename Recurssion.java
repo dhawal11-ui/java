@@ -1,56 +1,46 @@
-import java.math.BigInteger;
-
+// 1: Pivot lelo ( jayada tr last wale ko lete  hai)
+// 2: Partition(PIVOT KE AROUND ARRANGE AGE YA PICHE) 
+// 3: tO CALL QUICK SORT  (for left and right )  
 public class Recurssion {
+    public static void quickSort(int arr[], int si, int ei) {
+
+        if (si >= ei) {
+            return;
+        }
+
+        // last elemet (pviot)
+        int pIdx = partition(arr, si, ei);
+        quickSort(arr, si, pIdx - 1); // left
+        quickSort(arr, pIdx + 1, pIdx - 1); // right
+    }
+
+    public static int partition(int arr[], int si, int ei) {
+        int pivot = arr[ei];
+        int i = si - 1; // To make place for elements smaller than pivot
+
+        for (int j = si; j < ei; j++) {
+            if (arr[j] <= pivot) { // check element for pivot.
+                i++;
+                // swap
+                int temp = arr[j];
+                arr[j] = arr[i];
+                arr[i] = temp;
+            }
+        }
+        i++;
+        // swap
+        int temp = pivot;
+        arr[ei] = arr[i]; // pivot = arr[i]; X
+        arr[i] = temp;
+        return i;
+
+    }
 
     public static void printArr(int arr[]) {
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + "");
         }
         System.out.println();
-    }
-
-    public static void mergeSort(int arr[], int si, int ei) {
-        // base case
-        if (si >= ei) {
-            return;
-        }
-        int mid = si + (ei - si) / 2; // (si+ei)/2 isse v code chal jata tha
-        mergeSort(arr, si, mid); // left part
-        mergeSort(arr, mid + 1, ei); // right part
-        merge(arr, si, mid, ei);
-    }
-
-    public static void merge(int arr[], int si, int mid, int ei) {
-        int temp[] = new int[ei - si + 1]; // si = starting index and ei = ending.
-        int i = si; // iterator for left part
-        int j = mid + 1; // iterator for right part
-        int k = 0; // iterator for temperory array.
-
-        // merging temp array.
-        while (i <= mid && j <= ei) {
-            if (arr[i] <= arr[j]) {
-                temp[k] = arr[i];
-                i++;
-            } else {
-                temp[k] = arr[j];
-                j++;
-            }
-            k++;
-        }
-
-        // left part ke bache
-        while (i <= mid) {
-            temp[k++] = arr[i++];
-        }
-        // right part ke bache
-        while (j <= ei) {
-            temp[k++] = arr[j++];
-        }
-
-        // copy temp to my orginal array
-        for (k = 0, i = si; k < temp.length; k++, i++) {
-            arr[i] = temp[k];
-        }
     }
 
     public static void main(String[] args) {
@@ -62,7 +52,8 @@ public class Recurssion {
          * 3> merge the both left and right part
          */
         int arr[] = { 6, 3, 9, 5, 2, 8 };
-        mergeSort(arr, 0, arr.length - 1);
+
+        quickSort(arr, 0, arr.length - 1);
         printArr(arr);
     }
 
