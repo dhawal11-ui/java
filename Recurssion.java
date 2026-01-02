@@ -1,60 +1,52 @@
-// 1: Pivot lelo ( jayada tr last wale ko lete  hai)
-// 2: Partition(PIVOT KE AROUND ARRANGE AGE YA PICHE) 
-// 3: tO CALL QUICK SORT  (for left and right )  
+// Medium level question. Binary search jaisa hai
+// x axis per rotate karna.pivot ko last me daldo
+// linear secarch se tc o(n) ati thi
+// ham modified binary searcch se karege taki o(logn).
+// do lines se imagine kro . pivot ke left ki ek line and right ki ek line.
 public class Recurssion {
-    public static void quickSort(int arr[], int si, int ei) {
+    public static int search(int arr[], int tar, int si, int ei) {
 
-        if (si >= ei) {
-            return;
+        if (si > ei) {
+            return -1;// invalid condn
+        }
+        // kaam
+        int mid = si + (ei - si) / 2;
+
+        // case FOUND {kya mid me exists krta hai kya }
+        if (arr[mid] == tar) {
+            return mid;
         }
 
-        // last elemet (pviot)
-        int pIdx = partition(arr, si, ei);
-        quickSort(arr, si, pIdx - 1); // left
-        quickSort(arr, pIdx + 1, pIdx - 1); // right
-    }
-
-    public static int partition(int arr[], int si, int ei) {
-        int pivot = arr[ei];
-        int i = si - 1; // To make place for elements smaller than pivot
-
-        for (int j = si; j < ei; j++) {
-            if (arr[j] <= pivot) { // check element for pivot.
-                i++;
-                // swap
-                int temp = arr[j];
-                arr[j] = arr[i];
-                arr[i] = temp;
+        // mid on L1
+        if (arr[si] <= arr[mid]) {
+            // case a : left
+            if (arr[si] <= tar && tar <= arr[mid]) {
+                return search(arr, tar, si, mid); // left par seacrch
+            } // mid on l2
+            else {
+                // case b : right
+                return search(arr, tar, mid + 1, ei);
             }
         }
-        i++;
-        // swap
-        int temp = pivot;
-        arr[ei] = arr[i]; // pivot = arr[i]; X
-        arr[i] = temp;
-        return i;
 
-    }
-
-    public static void printArr(int arr[]) {
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + "");
+        // mid on L2
+        else {
+            // case c: right
+            if (arr[mid] <= tar && tar <= arr[ei]) {
+                return search(arr, tar, mid + 1, ei);
+            } else {
+                // case d:
+                return search(arr, tar, si, mid - 1);
+            }
         }
-        System.out.println();
+
     }
 
     public static void main(String[] args) {
-        /*
-         * Merge sort. TC nlogn
-         * approach
-         * 1> Div mid
-         * 2> merge sort left and right
-         * 3> merge the both left and right part
-         */
-        int arr[] = { 6, 3, 9, 5, 2, 8 };
+        int arr[] = { 4, 5, 6, 7, 0, 1, 2 }; // rotated array
+        int target = 0; // o/p = 4
+        int tarIdx = search(arr, target, 0, arr.length - 1);
+        System.out.println(tarIdx);
 
-        quickSort(arr, 0, arr.length - 1);
-        printArr(arr);
     }
-
 }
