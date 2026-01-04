@@ -44,9 +44,11 @@ public class Recurssion {
 
     public static void main(String[] args) {
         int arr[] = { 4, 5, 6, 7, 0, 1, 2 }; // rotated array
-        int target = 0; // o/p = 4
+        int target = 6;
         int tarIdx = search(arr, target, 0, arr.length - 1);
         System.out.println(tarIdx);
 
     }
 }
+
+// Hw solve by iteration.`
