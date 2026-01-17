@@ -1,29 +1,34 @@
 public class BackTracking {
 
-    public static void changeArr(int arr[], int i, int val) {
+    public static void findSubsets(String str, String ans, int i) {
         // base case
-        if (i == arr.length) {
-            printArr(arr);
+        if (i == str.length()) {
+            if (ans.length() == 0) {
+                System.out.println("null");
+            } else {
+                System.out.println(ans);
+            }
+
             return;
         }
-        // recussion (kaam)
-        arr[i] = val;
-        changeArr(arr, i + 1, val + 1);
-        arr[i] = arr[i] - 2;
-    }
-
-    public static void printArr(int arr[]) {
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
-        }
-        System.out.println();
+        // recurrision
+        // yes choice
+        findSubsets(str, ans + str.charAt(i), i + 1);
+        // no choice
+        findSubsets(str, ans, i + 1);
+        // to print in reverse order exchange the above line positions.
     }
 
     public static void main(String[] args) {
-        // In arrays
-        int arr[] = new int[5];
-        changeArr(arr, 0, 1);
-        printArr(arr);
+        String str = "abcfgsfgsfgs";
+        findSubsets(str, "", 0);
     }
 
 }
+
+// TC = O(n*2**n) // ek subset nikal ne ko 1 step lagta then 2**n subsets ke n
+// steps.
+// liye n2**n
+// SC =O(n) // stack meh n levels bante hai ...
+// Also try with string builder . then use deleete character to delete from
+// string.
