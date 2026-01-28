@@ -1,5 +1,4 @@
 public class BackTracking {
-    static int count = 0;
 
     public static boolean isSafe(char board[][], int row, int col) {
         // vertically upp
@@ -35,35 +34,44 @@ public class BackTracking {
         }
     }
 
-    public static void nQueens(char board[][], int row) {
+    public static boolean nQueens(char board[][], int row) {
         // Base case
         if (row == board.length) {
             printBoard(board);
-            count++;
-            return;
+
+            return true;
         }
 
         // column loop
         for (int j = 0; j < board.length; j++) {
             if (isSafe(board, row, j)) {
                 board[row][j] = 'Q';
-                nQueens(board, row + 1); // function call
-                board[row][j] = 'x'; // backtracking stelp
+                if (nQueens(board, row + 1)) {
+                    return true;
+                }
+                ; // function call
+                board[row][j] = 'x'; // backtracking step
             }
 
         }
+        return false;
     }
 
     public static void main(String[] args) {
-        int n = 5;
+        int n = 2;
         char board[][] = new char[n][n];
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 board[i][j] = 'x';
             }
         }
-        nQueens(board, 0);
-        System.out.println("Total ways to solve nQueens = " + count);
+        if (nQueens(board, 0)) {
+            System.out.println("solution is possible");
+
+        } else {
+            System.out.println("solution is not possible");
+        }
+
     }
 
 }
